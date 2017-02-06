@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta name="format-detection" content="telephone=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+		<!-- Path to your custom app styles-->
+		<link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+         <script>
+			var userAgent = navigator.userAgent + '';
+			if (userAgent.indexOf('iPhone') > -1) {
+				document.write('<script src="js/lib/cordova-iphone.js"></sc' + 'ript>');
+				var mobile_system = 'iphone';
+			} else if (userAgent.indexOf('Android') > -1) {
+				document.write('<script src="js/lib/cordova-android.js"></sc' + 'ript>');
+				var mobile_system = 'android';
+			} else {
+				var mobile_system = '';
+			}
+		</script>
+
+		<script src="scripts/jquery.js"></script>
+		<!-- your scripts here -->
+		
+		<script src="scripts/jquery.mobile.js"></script>
+		<title>app</title>
+	</head>
+	<body>
+	   <div data-role="page" style="text-shadow:none; background:url('img/bg12.jpg')  no-repeat center;-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;">
+
+			<div data-role="content" style="text-align: center;  padding-top:50px; background: none">
+
+				<img src="img/deywuro.png" style="margin-bottom: 50px;"/>
+				<div class="login-form" style=" padding: 45px;text-align: center; font-family: 'Roboto', sans-serif; outline: 0;background: none;">
+					<input type="text" placeholder="username" style="height: 50px;width: 100%;border:none; font-weight: bolder;padding-left: 10px;color: gray;background: white;"/>
+					<br />
+					<input type="password" placeholder="password" style="height: 50px;width: 100%;border:none; font-weight: bolder;padding-left: 10px;color: gray;background: white;"/>
+					<br />
+					<br />
+					<a href="menu.html" rel="external">
+					<button class="ui-btn" id="btnLogin" style="background: #f7ba4f;width: 100%;height: 40px;border:1px solid #f7ba4f; color:white;font-weight: bolder">
+						login
+					</button></a>
+					<p class="message" style="color :#f7ba4f; font-weight: bolder;">
+						Not registered? <a href="#"  style="color: white;text-decoration: none;">Join Us</a>
+					</p>
+				</div>
+
+			</div>
+		</div>
+
+	<!----------------------------->
+		
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<script type="text/javascript" src="cordova.js"></script>
+			<script type="text/javascript" src="scripts/platformOverrides.js"></script>
+			<script type="text/javascript" src="scripts/index.js"></script>
+
+	</body>
+</html>

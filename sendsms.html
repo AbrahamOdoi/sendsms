@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta name="format-detection" content="telephone=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+		<!-- Path to your custom app styles-->
+		<link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+		<script>
+			var userAgent = navigator.userAgent + '';
+			if (userAgent.indexOf('iPhone') > -1) {
+				document.write('<script src="js/lib/cordova-iphone.js"></sc' + 'ript>');
+				var mobile_system = 'iphone';
+			} else if (userAgent.indexOf('Android') > -1) {
+				document.write('<script src="js/lib/cordova-android.js"></sc' + 'ript>');
+				var mobile_system = 'android';
+			} else {
+				var mobile_system = '';
+			}
+		</script>
+
+		<script src="scripts/jquery.js"></script>
+		<!-- your scripts here -->
+
+		<script src="scripts/jquery.mobile.js"></script>
+		<title>app</title>
+		<style>
+			.headerDiv {
+				border: none;
+			}
+			#input_container {
+				position: relative;
+				padding: 0;
+				margin: 0;
+			}
+			#input {
+				height: 50px;
+				margin: 0;
+				padding-left: 50px;
+			}
+			#input_img {
+				position: absolute;
+				bottom: 8px;
+				left: 10px;
+				/*width: 50px;
+				 height: 20px;*/
+			}
+			.grad {
+				background: url('img/bg13.jpg');
+			}
+			textarea {
+				overflow-x: scroll;
+			}
+		</style>
+	</head>
+	<body>
+		<div data-role="page" class="headerDiv grad">
+			<div data-role="header" class="headerDiv" style="color:#fbd37b;background:none;text-shadow:none;">
+				<a href="menu.html" data-icon="home">Menu</a>
+				<h1>MENU</h1>
+			</div>
+
+			<div data-role="content">
+				<div id="decode">shd</div>
+				<div id="input_container">
+					<input type="text" id="input" placeholder="Campaign Name">
+					<img src="img/megaphone.png" id="input_img" width="10%">
+				</div>
+				<br />
+				<div id="input_container">
+					<input type="text" id="input" placeholder="Recipients">
+					<img src="img/smartphone.png" id="input_img" width="10%">
+				</div>
+				<br />
+				<br />
+				<div id="input_container">
+					<a style="text-shadow: none;cursor: pointer" id="input" class="btnPhonebook">My Phonebook</a>
+					<img src="img/phonebook.png" id="input_img" width="10%">
+					<!-- <a href="" class="snd">asjkdjsakdsajc</a> -->
+				</div>
+				<br />
+				<div id="input_container">
+					<textarea rows="20" cols="10" id="input" style="border-radius: 10px;">
+
+
+
+
+
+					</textarea>
+					<img src="img/school-material.png" id="input_img" width="10%">
+				</div>
+				<br />
+				<br />
+				<br />
+				<span class="ui-btn" id="btnLogin" style="padding-top: 10px;padding-bottom: -15px; text-shadow:none;background: #f7ba4f;width: 100%;height: 40px;border:1px solid #f7ba4f; color:white;font-weight: bolder">
+					Send
+				</span>
+			</div>
+		</div>
+
+		<!----------------------------->
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="scripts/platformOverrides.js"></script>
+		<script type="text/javascript" src="scripts/index.js"></script>
+
+	</body>
+</html>
