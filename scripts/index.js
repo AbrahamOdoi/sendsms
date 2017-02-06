@@ -1,70 +1,40 @@
-﻿(function () {
+﻿(function() {
 
-    document.addEventListener('deviceready', onDeviceReady.bind(this), false);
-    var pictureSource;
-    var destinationType;
+	document.addEventListener('deviceready', onDeviceReady.bind(this), false);
+	var pictureSource;
+	var destinationType;
 
-    function onDeviceReady() {
-        pictureSource = navigator.camera.PictureSourceType;
-        destinationType = navigator.camera.DestinationType;
+	function onDeviceReady() {
 
-//
-		$(function () {
-             "use strict";
-             $("#decode").click(function () {
-                 //alert("clicked");
-                 cordova.plugins.barcodeScanner.scan(
-                     function (result) {
-                         alert(result.text);
-                     },
-                     function (error) {
-                         alert(error);
-                     }
-                 );
-                 //end
-             });
-         });
-		//
+		navigator.contactsPhoneNumbers.list(function(contacts) {
+			console.log(contacts.length + ' contacts found');
+			for (var i = 0; i < contacts.length; i++) {
+				console.log(contacts[i].id + " - " + contacts[i].displayName);
+				var displayName=contacts[i].displayName;
+				for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
+					var phone = contacts[i].phoneNumbers[j];
+					console.log("===> " + phone.type + "  " + phone.number + " (" + phone.normalizedNumber + ")");
+				}
+				alert(displayName);
+			}
+			
+		}, function(error) {
+			console.error(error);
+		});
 
-		//Geolocation start
-         var c = function (pos) {
-             var lat = pos.coords.latitude,
-                 long = pos.coords.longitude,
-                 coords = lat + ', ' + long;
+	};
 
-             document.getElementById('google-map').setAttribute('src', 'http://maps.google.co.uk?q=' + coords + '&z=60&output=embed');
+	function onPhotoDataSuccess(imageData) {
 
-         }
+	}
 
-         //get location function
-         document.getElementById("getloc").onclick = function () {
-             navigator.geolocation.getCurrentPosition(c);
-             return false;
-         }
+	function onFail(message) {
 
+	}
 
-        // document.getElementById("camera").onclick = function () {
-        //     navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
-        //         quality: 50,
-        //         destinationType: destinationType.DATA_URL,
-        //         saveToPhotoAlbum: true,
-        //         allowEdit: true
-        //     });
-        // }
-        //
-    };
+	function clearCache() {
 
-    function onPhotoDataSuccess(imageData) {
-
-    }
-
-    function onFail(message) {
-
-    }
-
-    function clearCache() {
-
-    }
+	}
 
 })();
 
